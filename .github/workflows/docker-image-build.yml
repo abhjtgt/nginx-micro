@@ -15,8 +15,10 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+    - name: tmp
+      run: echo ${{env.IMG_TAG}}
     - uses: actions/checkout@v4
-    - name: Build the Docker image ${{env.IMG_TAG}}
+    - name: Build the Docker image
       run: |
         docker build . --file Dockerfile --tag ${{env.IMG_NAME}}:${{env.IMG_TAG}}
         docker tag ${{env.IMG_NAME}}:${{env.IMG_TAG}} ${{env.IMG_NAME}}:latest
