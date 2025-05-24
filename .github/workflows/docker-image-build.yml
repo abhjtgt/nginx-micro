@@ -16,7 +16,7 @@ jobs:
 
     steps:
     - name: Set image tag
-      run:  env.IMG_TAG=$(date +%s)
+      run:  IMG_TAG=$(date +%s)
     - uses: actions/checkout@v4
     - name: Build the Docker image
       run: |
