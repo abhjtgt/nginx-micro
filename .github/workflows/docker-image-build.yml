@@ -7,7 +7,7 @@ on:
     branches: [ "main" ]
 env:
   IMG_NAME: nginx-lite
-  IMG_TAG: $(date +%s)
+  IMG_TAG: old
 jobs:
 
   build:
@@ -15,8 +15,8 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - name: tmp
-      run: echo ${{env.IMG_TAG}}
+    - name: Set image tag
+      run:  env.IMG_TAG=$(date +%s)
     - uses: actions/checkout@v4
     - name: Build the Docker image
       run: |
